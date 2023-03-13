@@ -32,4 +32,7 @@ export const Map = () => {
 const MapContainer = styled.div.attrs({ id: 'map' })`
   height: 500px;
   margin-top: 30px;
+  .leaflet-default-icon-path {
+    background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
+  }
 `;
