@@ -6,7 +6,7 @@ type MenuProps = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-export const Menu = ({ isOpen, setIsOpen }: MenuProps) => {
+export const Menu = ({ isOpen }: MenuProps) => {
   return (
     <List isOpen={isOpen}>
       <Element>Время</Element>
