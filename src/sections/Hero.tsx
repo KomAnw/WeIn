@@ -35,7 +35,7 @@ const Text = styled(HeadingSecond)`
   font-size: 45px;
 `;
 const SpecialText = styled.p`
-  font-family: Gogol;
+  font-family: 'Gogol';
   color: rgb(0 0 0);
   font-size: 70px;
   line-height: 0.4;
