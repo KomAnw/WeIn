@@ -1,4 +1,6 @@
 import { GM } from 'src/design/Fonts';
 import styled from 'styled-components';
 
-export const Initials = styled(GM).attrs({ children: 'Г&М' })``;
+export const Initials = styled(GM).attrs({ children: 'Г&М' })`
+  font-size: 20px;
+`;

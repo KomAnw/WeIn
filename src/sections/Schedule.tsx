@@ -1,3 +1,4 @@
+import { Anchor } from 'src/components/Anchor';
 import { Heading, MainFont } from 'src/design/Fonts';
 import styled from 'styled-components';
 
@@ -18,6 +19,7 @@ const scheduleData = [
 export const Schedule = () => {
   return (
     <Container>
+      <Anchor id="schedule" />
       <Title>Свадебное расписание</Title>
       <EventsContainer>
         {scheduleData.map(({ subTitle, description, details, time }) => (

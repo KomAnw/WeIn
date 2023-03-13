@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import L from 'leaflet';
-
 import 'leaflet/dist/leaflet.css';
 import styled from 'styled-components';
+import { Anchor } from 'src/components/Anchor';
+import 'leaflet/dist/images/marker-shadow.png';
 
 export const Map = () => {
   useEffect(() => {
@@ -22,12 +23,18 @@ export const Map = () => {
     };
   }, []);
 
-  return <MapContainer />;
+  return (
+    <>
+      <Anchor id="mapId" />
+      <MapContainer />
+    </>
+  );
 };
 
 const MapContainer = styled.div.attrs({ id: 'map' })`
   height: 500px;
   margin-top: 30px;
+  z-index: 10;
   .leaflet-default-icon-path {
     background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
   }

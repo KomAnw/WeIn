@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { MainFont } from 'src/design/Fonts';
 import { getTimeRemaining } from 'src/utils/getTime';
 import styled from 'styled-components';
+import { Anchor } from './Anchor';
 
 const targetDate = '2023-06-10T15:00:00';
 
@@ -22,14 +23,17 @@ export const Timer = () => {
   });
 
   return (
-    <Container>
-      {timeLeft.map(({ name, value }) => (
-        <Cell key={name}>
-          <Number>{value}</Number>
-          <Text>{name}</Text>
-        </Cell>
-      ))}
-    </Container>
+    <>
+      <Anchor id="time" />
+      <Container>
+        {timeLeft.map(({ name, value }) => (
+          <Cell key={name}>
+            <Number>{value}</Number>
+            <Text>{name}</Text>
+          </Cell>
+        ))}
+      </Container>
+    </>
   );
 };
 

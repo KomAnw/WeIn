@@ -1,14 +1,21 @@
 import mapPNG from 'assets/map.png';
+import { useEffect, useState } from 'react';
 import { HeadingSecond } from 'src/design/Fonts';
 import styled from 'styled-components';
 
 export const Hero = () => {
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    setOpacity(1);
+  }, []);
+
   return (
     <Container>
       <Image src={mapPNG} />
       <TextContainer>
         <Text>Город</Text>
-        <SpecialText>нашей</SpecialText>
+        <SpecialText opacity={opacity}>нашей</SpecialText>
         <Text>Любви</Text>
       </TextContainer>
     </Container>
@@ -34,11 +41,14 @@ const Text = styled(HeadingSecond)`
   text-transform: uppercase;
   font-size: 45px;
 `;
-const SpecialText = styled.p`
+const SpecialText = styled.p<{ opacity: number }>`
+  opacity: ${({ opacity }) => opacity};
   font-family: 'Gogol';
   color: rgb(0 0 0);
   font-size: 70px;
   line-height: 0.4;
   font-style: italic;
   letter-spacing: 9px;
+  transform: translate(0px, -10px);
+  transition: all 3s ease;
 `;

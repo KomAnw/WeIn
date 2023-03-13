@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { Heading } from 'src/design/Fonts';
+import { Anchor } from 'src/components/Anchor';
 
 export const Main = () => {
   return (
     <Container>
+      <Anchor id="text" />
       <Card>
         <Title>Дорогой Гость!</Title>
         <FirstDescription>
@@ -48,19 +50,21 @@ const Title = styled(Heading)`
 `;
 const FirstDescription = styled.p`
   margin: 10px 0;
-  font-size: 16px;
+  font-size: 19px;
   font-family: Cormorant;
+  text-align: justify;
 `;
 const Date = styled(Heading)`
   margin: 10px 0;
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
   font-weight: 700;
 `;
 const SecondDescription = styled.p`
   margin: 10px 0;
-  font-size: 16px;
+  font-size: 19px;
   font-family: Cormorant;
+  text-align: justify;
 `;
 const Names = styled(Heading)`
   margin: 0 auto;

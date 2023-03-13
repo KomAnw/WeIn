@@ -1,32 +1,32 @@
-import type { Dispatch, SetStateAction } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
+import type { InputRef } from 'src/sections/Header';
 import styled from 'styled-components';
 
 type BurgerProps = {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  setIsOpen: () => void;
 };
 
-export const Burger = ({ isOpen, setIsOpen }: BurgerProps) => {
+export const Burger = forwardRef(({ setIsOpen }: BurgerProps, ref: ForwardedRef<InputRef>) => {
   return (
     <Container role="navigation">
-      <div id="menuToggle">
-        <input type="checkbox" onClick={() => setIsOpen(!isOpen)} />
+      <div id="menuToggle" onClick={setIsOpen}>
+        <input type="checkbox" ref={ref} />
 
-        <span></span>
-        <span></span>
-        <span></span>
+        <span />
+        <span />
+        <span style={{ margin: 0 }} />
 
-        <ul id="menu"></ul>
+        <ul id="menu" />
       </div>
     </Container>
   );
-};
+});
 
 const Container = styled.nav`
-  width: 33px;
+  width: 25px;
   #menuToggle {
     display: block;
-    position: absolute;
+    position: relative;
     z-index: 15;
 
     -webkit-user-select: none;
@@ -45,7 +45,7 @@ const Container = styled.nav`
   }
 
   #menuToggle input {
-    display: block;
+    display: none;
     width: 35px;
     height: 25px;
     position: absolute;
@@ -63,11 +63,11 @@ const Container = styled.nav`
   #menuToggle span {
     display: block;
     width: 25px;
-    height: 1px;
-    margin-bottom: 5px;
+    height: 3.5px;
+    margin-bottom: 3px;
     position: relative;
 
-    background: black;
+    background: rgba(194, 207, 185);
     border-radius: 3px;
 
     z-index: 1;
@@ -89,7 +89,7 @@ const Container = styled.nav`
   #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
+    background: rgba(194, 207, 185);
   }
 
   #menuToggle input:checked ~ span:nth-last-child(3) {
@@ -98,6 +98,6 @@ const Container = styled.nav`
   }
 
   #menuToggle input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
+    transform: rotate(-45deg) translate(1px, -1px);
   }
 `;
