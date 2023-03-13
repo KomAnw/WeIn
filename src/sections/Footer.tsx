@@ -18,7 +18,6 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 100vw;
-  height: 140px;
-  object-fit: cover;
-  object-position: 0 45%;
+  object-fit: contain;
+  margin: 10px 0 0 0;
 `;
