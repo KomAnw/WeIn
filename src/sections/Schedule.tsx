@@ -31,9 +31,7 @@ export const Schedule = () => {
       <Anchor id="schedule" />
       <Title>Свадебное расписание</Title>
       <EventsContainer>
-        <DayContainer>
-          <DayTitle>10.06.2023</DayTitle>
-        </DayContainer>
+        <DayTitle>10.06.2023</DayTitle>
         {scheduleDayOne.map(({ subTitle, description, details, time }) => (
           <Event key={time}>
             <Time>{time}</Time>
@@ -44,9 +42,7 @@ export const Schedule = () => {
             </TextContainer>
           </Event>
         ))}
-        <DayContainer>
-          <DayTitle>11.06.2023</DayTitle>
-        </DayContainer>
+        <DayTitle>11.06.2023</DayTitle>
         {scheduleDayTwo.map(({ subTitle, description, details, time }) => (
           <Event key={time}>
             <Time>{time}</Time>
@@ -63,10 +59,9 @@ export const Schedule = () => {
 };
 
 const DayTitle = styled(HeadingSecond)`
+  text-align: center;
+  font-weight: bold;
 `;
-
-const DayContainer = styled('div')`
-`
 
 const Container = styled.div`
   width: 80%;
