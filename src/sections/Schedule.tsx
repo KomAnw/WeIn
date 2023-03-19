@@ -1,8 +1,8 @@
 import { Anchor } from 'src/components/Anchor';
-import { Heading, MainFont } from 'src/design/Fonts';
+import { Heading, MainFont, HeadingSecond } from 'src/design/Fonts';
 import styled from 'styled-components';
 
-const scheduleData = [
+const scheduleDayOne = [
   {
     time: '15:00',
     subTitle: 'Церемония бракосочетания',
@@ -16,13 +16,38 @@ const scheduleData = [
   },
 ];
 
+const scheduleDayTwo = [
+  {
+    time: '13:00',
+    subTitle: 'Прогулка на катере',
+    description: 'Набережная реки Фонтанки, 64',
+    details: '',
+  },
+];
+
 export const Schedule = () => {
   return (
     <Container>
       <Anchor id="schedule" />
       <Title>Свадебное расписание</Title>
       <EventsContainer>
-        {scheduleData.map(({ subTitle, description, details, time }) => (
+        <DayContainer>
+          <DayTitle>10.06.2023</DayTitle>
+        </DayContainer>
+        {scheduleDayOne.map(({ subTitle, description, details, time }) => (
+          <Event key={time}>
+            <Time>{time}</Time>
+            <TextContainer>
+              <SubTitle>{subTitle}</SubTitle>
+              <Text>{description}</Text>
+              {details && <Text>{details}</Text>}
+            </TextContainer>
+          </Event>
+        ))}
+        <DayContainer>
+          <DayTitle>11.06.2023</DayTitle>
+        </DayContainer>
+        {scheduleDayTwo.map(({ subTitle, description, details, time }) => (
           <Event key={time}>
             <Time>{time}</Time>
             <TextContainer>
@@ -36,6 +61,12 @@ export const Schedule = () => {
     </Container>
   );
 };
+
+const DayTitle = styled(HeadingSecond)`
+`;
+
+const DayContainer = styled('div')`
+`
 
 const Container = styled.div`
   width: 80%;
